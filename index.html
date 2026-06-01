@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Agro Forte - O Jogo do Futuro Sustentável</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(180deg,#081c15,#1b4332,#2d6a4f);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+  position:relative;
+}
+
+header::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:
+  radial-gradient(circle at top left, rgba(0,255,170,0.2), transparent 25%),
+  radial-gradient(circle at bottom right, rgba(0,150,255,0.2), transparent 25%);
+  z-index:0;
+}
+
+.hero{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+}
+
+.hero h1{
+  font-size:4rem;
+  font-family:'Orbitron', sans-serif;
+  color:#95ff8f;
+  text-shadow:0 0 20px #00ff88;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:1.2rem;
+  line-height:1.8;
+  color:#d8f3dc;
+  margin-bottom:35px;
+}
+
+.play-btn{
+  background:linear-gradient(90deg,#00c853,#00e5ff);
+  border:none;
+  padding:18px 40px;
+  border-radius:50px;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+  box-shadow:0 0 25px rgba(0,255,170,0.4);
+}
+
+.play-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 35px rgba(0,255,170,0.8);
+}
+
+/* =========================
+GAME AREA
+========================= */
+
+.game-section{
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.game-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.game-title h2{
+  font-size:3rem;
+  color:#b7ff00;
+  margin-bottom:15px;
+}
+
+.game-title p{
+  color:#d8f3dc;
+}
+
+.status{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+
+.status-box{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  padding:20px;
+  border-radius:15px;
+  min-width:200px;
+  text-align:center;
+  backdrop-filter:blur(5px);
+}
+
+.status-box h3{
+  color:#95ff8f;
+  margin-bottom:10px;
+}
+
+/* =========================
+MISSION CARDS
+========================= */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
+  padding:25px;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#95ff8f;
+  box-shadow:0 0 25px rgba(149,255,143,0.3);
+}
+
+.card h3{
+  margin-bottom:15px;
+  color:#95ff8f;
+}
+
+.card p{
+  line-height:1.7;
+  color:#d8f3dc;
+  margin-bottom:20px;
+}
+
+.card button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,#00c853,#00b0ff);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card button:hover{
+  transform:scale(1.03);
+}
+
+/* =========================
+QUIZ AREA
+========================= */
+
+.quiz{
+  margin-top:80px;
+  background:rgba(255,255,255,0.05);
+  padding:40px;
+  border-radius:25px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.quiz h2{
+  margin-bottom:25px;
+  color:#b7ff00;
+}
+
+.question{
+  margin-bottom:25px;
+}
+
+.answers button{
+  width:100%;
+  margin:10px 0;
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  background:#1b4332;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.answers button:hover{
+  background:#2d6a4f;
+}
+
+.result{
+  margin-top:25px;
+  font-size:1.1rem;
+  color:#95ff8f;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+  margin-top:100px;
+  text-align:center;
+  padding:30px;
+  background:#081c15;
+  color:#95d5b2;
+}
+
+/* =========================
+FLOATING ICONS
+========================= */
+
+.leaf{
+  position:fixed;
+  font-size:30px;
+  opacity:0.15;
+  animation:float 12s linear infinite;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(100vh) rotate(0deg);
+  }
+  to{
+    transform:translateY(-120vh) rotate(360deg);
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="leaf" style="left:10%">🌱</div>
+<div class="leaf" style="left:40%; animation-duration:18s;">🚜</div>
+<div class="leaf" style="left:70%; animation-duration:15s;">🌿</div>
+<div class="leaf" style="left:90%; animation-duration:20s;">💧</div>
+
+<header>
+
+  <div class="hero">
+    <h1>AGRO FORTE</h1>
+
+    <p>
+      Um jogo educativo sobre sustentabilidade, tecnologia no campo,
+      produção responsável, veterinária, agronomia e preservação ambiental.
+      Aprenda de forma divertida enquanto constrói o futuro do agro.
+    </p>
+
+    <button class="play-btn" onclick="startGame()">
+      INICIAR MISSÃO
+    </button>
+  </div>
+
+</header>
+
+<section class="game-section">
+
+  <div class="game-title">
+    <h2>MISSÕES DO FUTURO</h2>
+
+    <p>
+      Complete desafios, ganhe experiência e descubra como o agro
+      pode alimentar o mundo preservando o meio ambiente.
+    </p>
+  </div>
+
+  <div class="status">
+
+    <div class="status-box">
+      <h3>🌱 Sustentabilidade</h3>
+      <p id="eco">0%</p>
+    </div>
+
+    <div class="status-box">
+      <h3>🚜 Tecnologia</h3>
+      <p id="tech">0%</p>
+    </div>
+
+    <div class="status-box">
+      <h3>⭐ Experiência</h3>
+      <p id="xp">0 XP</p>
+    </div>
+
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>🌾 Agricultura Inteligente</h3>
+
+      <p>
+        Use drones e sensores para reduzir desperdícios de água
+        e melhorar a produtividade.
+      </p>
+
+      <button onclick="completeMission(20,15,100)">
+        Completar Missão
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>🐄 Bem-estar Animal</h3>
+
+      <p>
+        Cuide dos animais com alimentação correta,
+        vacinação e monitoramento veterinário.
+      </p>
+
+      <button onclick="completeMission(15,10,80)">
+        Completar Missão
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>🌳 Preservação Ambiental</h3>
+
+      <p>
+        Preserve nascentes, matas ciliares e pratique
+        o manejo sustentável da terra.
+      </p>
+
+      <button onclick="completeMission(30,5,120)">
+        Completar Missão
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Energia Limpa</h3>
+
+      <p>
+        Utilize energia solar e biogás para reduzir
+        impactos ambientais no campo.
+      </p>
+
+      <button onclick="completeMission(25,20,150)">
+        Completar Missão
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>💧 Gestão da Água</h3>
+
+      <p>
+        Implemente irrigação inteligente e economize água
+        nas plantações.
+      </p>
+
+      <button onclick="completeMission(20,12,90)">
+        Completar Missão
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>🧬 Biotecnologia</h3>
+
+      <p>
+        Descubra como a ciência melhora sementes,
+        produtividade e resistência das lavouras.
+      </p>
+
+      <button onclick="completeMission(10,35,170)">
+        Completar Missão
+      </button>
+    </div>
+
+  </div>
+
+  <!-- QUIZ -->
+
+  <div class="quiz">
+
+    <h2>🎓 QUIZ DO AGRO</h2>
+
+    <div class="question">
+      <h3>
+        Qual tecnologia ajuda a monitorar plantações pelo alto?
+      </h3>
+
+      <div class="answers">
+        <button onclick="correct()">🚁 Drone</button>
+        <button onclick="wrong()">📚 Caderno</button>
+        <button onclick="wrong()">🪓 Machado</button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>
+        O que significa agricultura sustentável?
+      </h3>
+
+      <div class="answers">
+        <button onclick="wrong()">
+          Produzir sem pensar no futuro
+        </button>
+
+        <button onclick="correct()">
+          Produzir preservando o meio ambiente
+        </button>
+
+        <button onclick="wrong()">
+          Usar água sem controle
+        </button>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>
+        Qual profissional cuida da saúde animal?
+      </h3>
+
+      <div class="answers">
+        <button onclick="correct()">
+          👨‍⚕️ Médico Veterinário
+        </button>
+
+        <button onclick="wrong()">
+          🚜 Operador de Drone
+        </button>
+
+        <button onclick="wrong()">
+          🏗️ Engenheiro Civil
+        </button>
+      </div>
+    </div>
+
+    <div class="result" id="result">
+      Responda às perguntas para ganhar experiência.
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  🌎 Agro Forte • Educação, Tecnologia e Sustentabilidade no Campo • 2026
+</footer>
+
+<script>
+
+let eco = 0;
+let tech = 0;
+let xp = 0;
+
+function startGame(){
+
+  alert(
+    "Bem-vindo ao Agro Forte! 🌱\n\n" +
+    "Complete missões, responda perguntas e descubra como o agro sustentável pode transformar o futuro."
+  );
+
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: "smooth"
+  });
+
+}
+
+function completeMission(e,t,x){
+
+  eco += e;
+  tech += t;
+  xp += x;
+
+  document.getElementById("eco").innerHTML = eco + "%";
+  document.getElementById("tech").innerHTML = tech + "%";
+  document.getElementById("xp").innerHTML = xp + " XP";
+
+  alert(
+    "Missão concluída! ✅\n\n" +
+    "+" + e + "% Sustentabilidade\n" +
+    "+" + t + "% Tecnologia\n" +
+    "+" + x + " XP"
+  );
+
+}
+
+function correct(){
+
+  xp += 50;
+
+  document.getElementById("xp").innerHTML = xp + " XP";
+
+  document.getElementById("result").innerHTML =
+    "✅ Resposta correta! Você ganhou 50 XP.";
+
+}
+
+function wrong(){
+
+  document.getElementById("result").innerHTML =
+    "❌ Resposta incorreta. Tente novamente e continue aprendendo.";
+
+}
+
+</script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
